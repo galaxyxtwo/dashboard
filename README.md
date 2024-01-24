@@ -1,24 +1,24 @@
 # Leto Dashboard
 
-## Tech
-
-- ReactJS
-- Vite + SWC
-- pnpm
-
-## REQUIRED ENV VARS
-
-- VITE_API_BASE_URL
-- VITE_AUTH_BASE_URL
-
 ## Setup and installation
 
 ```bash
-pnpm install
+npm install
 ```
 
-## Run in development mode
+## Run the Dashboard in Dev mode
+- Turn off the authentication requirement to run the dashboard in a local dev environment
+  - Locate the index.jsx file (src/components/templates/MainLayout)
+  - Comment out the code in this file and add the following code
 
-```bash
-pnpm dev
-```
+  ```
+  import { Outlet } from "react-router-dom";
+  function MainLayout() {
+  // const { isAuth } = useAuth(); // No longer using the authentication check
+  // Removed the check and redirect logic
+  return <Outlet />;
+  }
+  export default MainLayout;
+- Save the file and run in local host
+  ```
+  npm run dev 
